@@ -1,8 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.template import RequestContext, loader
+from .models import Question
 # Create your views here.
 
 
-def hello(request):
-    html = "<html><body>NOW is: OK.</body></html>"
-    return HttpResponse(html)
+def index(request):
+    # template = loader.get_template('firstApp/index.html')
+    # context = RequestContext(request, {})
+    # return HttpResponse(template.render(context))
+    context = {'first_name': 'Ma', 'last_name': 'Yonglong'}
+    # return render(request, 'firstApp/index.html', context)
+    return render_to_response('firstApp/index.html', context, context_instance=RequestContext(request))
+
