@@ -19,5 +19,6 @@ from firstApp import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^hello/$', views.hello, name='hello'),
+    url(r'^$', views.index, name='index'),
+    url(r'^index/$', views.index, name='index'),
 ]
